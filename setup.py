@@ -98,4 +98,5 @@ setup(
     ext_modules=[pyjq],
     cmdclass={"build_ext": build_ext},
     package_data={'': [onig_tarball_path, jq_tarball_path]},
+    setup_requires=['cython'],
 )
