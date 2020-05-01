@@ -17,13 +17,13 @@ from setuptools.extension import Extension
 
 dependencies_dir_path = join(abspath(dirname(__file__)), "dependencies")
 
-onig_tarball_path = join(dependencies_dir_path, "onig-6.9.0.tar.gz")
+onig_tarball_path = join(dependencies_dir_path, "onig-6.9.5-rev1.tar.gz")
 onig_install_path = join(dependencies_dir_path, "onig_install")
-onig_source_path = join(dependencies_dir_path, "onig-6.9.0")
+onig_source_path = join(dependencies_dir_path, "onig-6.9.5")
 
-jq_tarball_path = join(dependencies_dir_path, "jq-1.5.tar.gz")
+jq_tarball_path = join(dependencies_dir_path, "jq-1.6.tar.gz")
 jq_install_path = join(dependencies_dir_path, "jq_install")
-jq_source_path = join(dependencies_dir_path, "jq-jq-1.5")
+jq_source_path = join(dependencies_dir_path, "jq-1.6")
 
 
 class build_ext(_build_ext):
@@ -61,7 +61,7 @@ class build_ext(_build_ext):
                 ["./configure", "CFLAGS=-fPIC", "--disable-maintainer-mode",
                  "--enable-all-static", "--disable-shared",
                  "--with-oniguruma=" + onig_install_path, "--prefix", jq_install_path],
-                ["make", "install-libLTLIBRARIES", "install-includeHEADERS"],
+                ["make", "install"],
             ]
         )
 
